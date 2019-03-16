@@ -1,5 +1,7 @@
 package com.contestgo.contestgobackend.Utils;
 
+import lombok.Data;
+
 /**
  * @param: none
  * @description: 自定义响应数据结构
@@ -14,7 +16,8 @@ package com.contestgo.contestgobackend.Utils;
  * @author: KingJ
  * @create: 2019-03-13 20:17
  **/
-public class JsonResult<T> {
+@Data
+public class JsonResult {
 
     /** 定义相应返回状态码 */
     private Integer status;
@@ -24,6 +27,8 @@ public class JsonResult<T> {
 
     /** 定义相应返回数据 */
     private Object data;
+
+    public JsonResult() {}
 
     public JsonResult(Integer status, String msg, Object data) {
         this.status = status;
@@ -35,6 +40,10 @@ public class JsonResult<T> {
         this.status = 200;
         this.msg = "ok";
         this.data = data;
+    }
+
+    public static JsonResult build(Integer status, String msg, Object data) {
+        return new JsonResult(status, msg, data);
     }
 
     public static JsonResult ok(Object data) {

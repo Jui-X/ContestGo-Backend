@@ -1,0 +1,22 @@
+.bg {
+  padding: 13% 35%;
+  background-color: silver;
+}
+.main {
+  padding: 25px;
+  background-color: white;
+}
+.header {
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.btn-style {
+  margin-right: 10px;
+  width: 125px;
+  text-align: center;
+}
+
+.word-doc {
+  padding-top: 0;
+}

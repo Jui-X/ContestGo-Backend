@@ -12,6 +12,9 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @param: none
  * @description:
@@ -33,7 +36,7 @@ public class UserController {
 
     @ApiOperation(value = "用户注册", notes = "用户通过填写用户名密码注册")
     @PostMapping("/signUp")
-    public void signUp(@RequestParam("username")String username, @RequestParam("password")String password) {
+    public JsonResult signUp(@RequestParam("username")String username, @RequestParam("password")String password) {
 //        String username = userInfo.getString("username");
 //        String password = userInfo.getString("password");
 
@@ -44,6 +47,11 @@ public class UserController {
             redisUtils.set(username, token, RedisConstant.EXPIRE_TIME);
             redisUtils.set(token, username, RedisConstant.EXPIRE_TIME);
         }
+
+        Map<String, String> map = new HashMap<>();
+        map.put("username", username);
+
+        return JsonResult.ok(map);
     }
 
     @ApiOperation(value = "用户登录", notes = "核对用户账号密码")
@@ -60,6 +68,11 @@ public class UserController {
             userVO.setUsername(username);
             return JsonResult.ok(userVO);
         }
+    }
+
+    @GetMapping("/test")
+    public String test() {
+        return "index";
     }
 
 }
