@@ -18,9 +18,9 @@ public class Student {
     /** uid */
     private Integer id;
 
-    @ApiModelProperty(value = "用户名", name = "username", example = "juix", required = true)
+    @ApiModelProperty(value = "用户名", name = "stu_name", example = "juix", required = true)
     /** 用户名 */
-    private String username;
+    private String stu_name;
 
     @ApiModelProperty(value = "密码", name = "password", example = "123456", required = true)
     /** 用户密码 */

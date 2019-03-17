@@ -8,6 +8,7 @@ import com.contestgo.contestgobackend.Utils.JsonResult;
 import com.contestgo.contestgobackend.Utils.MD5Utils;
 import com.contestgo.contestgobackend.Utils.RedisUtils;
 import com.contestgo.contestgobackend.VO.StudentVO;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,7 @@ import java.util.Map;
  * @create: 2019-03-06 19:48
  **/
 @RestController
+@Api(value = "学生用户接口", tags = "学生用户的Controller")
 @RequestMapping("/user")
 public class StudentController {
 

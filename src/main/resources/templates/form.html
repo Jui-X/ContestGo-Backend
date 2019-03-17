@@ -293,60 +293,65 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <form role="form" method="post" enctype="multipart/form-data">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                        <div class="form-group">
-                                            <label>比赛名称</label>
-                                            <input class="form-control" placeholder="请输入完整的比赛正式名称">
+                                <form role="form" method="post" enctype="multipart/form-data" action="/contest/create">
+                                    <div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label>比赛名称</label>
+                                                <input class="form-control" placeholder="请输入完整的比赛正式名称" name="contest_name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>比赛详情</label>
+                                                <textarea class="form-control" rows="13" name="contest_details"></textarea>
+                                                <p class="help-block word-doc">通过附件导入，仅支持word文档(.doc, .docx)</p><input type="file">
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label>比赛详情</label>
-                                            <textarea class="form-control" rows="13"></textarea>
-                                            <p class="help-block word-doc">通过附件导入，仅支持word文档(.doc, .docx)</p><input type="file">
+                                        <!-- /.col-lg-6 (nested) -->
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label>比赛类型</label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="contest_type" id="optionsRadiosInline1" value="科研竞赛" checked="">科研竞赛
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="contest_type" id="optionsRadiosInline2" value="体育竞赛">体育竞赛
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>比赛地点</label>
+                                                <input class="form-control" placeholder="请输入完整的比赛地址" name="venue">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    报名截止日期: <input type="datetime-local" name="apply_ddl" min="1970-01-01 00:00:00">
+                                                </div>
+                                                <div class="form-group">
+                                                    材料提交截止日期: <input type="datetime-local" name="submit_ddl" min="1970-01-01 00:00:00">
+                                                </div>
+                                                <div class="form-group">
+                                                    初赛日期: <input type="datetime-local" name="preliminary" min="1970-01-01 00:00:00">
+                                                </div>
+                                                <div class="form-group">
+                                                    复赛日期: <input type="datetime-local" name="quarter_final" min="1970-01-01 00:00:00">
+                                                </div>
+                                                <div class="form-group">
+                                                    决赛日期: <input type="datetime-local" name="final_date" min="1970-01-01 00:00:00">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>附件上传</label>
+                                                <input type="file" name="attachment" multiple="multiple" accept=".doc, .docx">
+                                            </div>
+                                            <h4>联系方式</h4>
+                                            <div class="form-group input-group">
+                                                <span class="input-group-addon">@</span>
+                                                <input type="text" name="email_address" class="form-control" placeholder="邮箱地址">
+                                            </div>
                                         </div>
-
-                                        <button type="submit" class="btn btn-info btn-style">提交</button>
-                                        <button type="reset" class="btn btn-default btn-style">重置</button>
+                                        <!-- /.col-lg-6 (nested) -->
                                     </div>
-                                    <!-- /.col-lg-6 (nested) -->
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                        <div class="form-group">
-                                            <label>比赛类型</label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked="">科研竞赛
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2">体育竞赛
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="form-group">
-                                                报名截止日期: <input type="datetime-local" name="applydeadline">
-                                            </div>
-                                            <div class="form-group">
-                                                材料提交截止日期: <input type="datetime-local" name="bdaytime">
-                                            </div>
-                                            <div class="form-group">
-                                                初赛日期: <input type="datetime-local" name="bdaytime">
-                                            </div>
-                                            <div class="form-group">
-                                                复赛日期: <input type="datetime-local" name="bdaytime">
-                                            </div>
-                                            <div class="form-group">
-                                                决赛日期: <input type="datetime-local" name="bdaytime">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>附件上传</label>
-                                            <input type="file" multiple="multiple" accept=".doc, .docx">
-                                        </div>
-                                        <h4>联系方式</h4>
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon">@</span>
-                                            <input type="text" class="form-control" placeholder="邮箱地址">
-                                        </div>
-                                    </div>
-                                    <!-- /.col-lg-6 (nested) -->
+                                    <button type="submit" class="btn btn-info btn-style" href="/contest/create">提交</button>
+                                    <button type="reset" class="btn btn-default btn-style">重置</button>
                                 </form>
                             </div>
                             <!-- /.row (nested) -->
