@@ -1,13 +1,13 @@
 package com.contestgo.contestgobackend.Controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.contestgo.contestgobackend.Pojo.User;
+import com.contestgo.contestgobackend.Pojo.Student;
 import com.contestgo.contestgobackend.Constant.RedisConstant;
-import com.contestgo.contestgobackend.Service.UserService;
+import com.contestgo.contestgobackend.Service.StudentService;
 import com.contestgo.contestgobackend.Utils.JsonResult;
 import com.contestgo.contestgobackend.Utils.MD5Utils;
 import com.contestgo.contestgobackend.Utils.RedisUtils;
-import com.contestgo.contestgobackend.VO.UserVO;
+import com.contestgo.contestgobackend.VO.StudentVO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +23,7 @@ import java.util.Map;
  **/
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class StudentController {
 
     @Autowired
     private RedisUtils redisUtils;
@@ -32,18 +32,18 @@ public class UserController {
     private MD5Utils tokenGenerator;
 
     @Autowired
-    private UserService userService;
+    private StudentService studentService;
 
     @ApiOperation(value = "用户注册", notes = "用户通过填写用户名密码注册")
     @PostMapping("/signUp")
-    public JsonResult signUp(@RequestParam("username")String username, @RequestParam("password")String password) {
-//        String username = userInfo.getString("username");
-//        String password = userInfo.getString("password");
+    public JsonResult signUp(@RequestBody(required = true)JSONObject userInfo) {
+        String username = userInfo.getString("username");
+        String password = userInfo.getString("password");
 
-        User currentUser = userService.queryUserByName(username);
+        Student currentUser = studentService.queryUserByName(username);
         if(currentUser == null) {
             String token = tokenGenerator.tokenGenerate(username, password);
-            userService.createUser(username, password);
+            studentService.createUser(username, password);
             redisUtils.set(username, token, RedisConstant.EXPIRE_TIME);
             redisUtils.set(token, username, RedisConstant.EXPIRE_TIME);
         }
@@ -58,21 +58,18 @@ public class UserController {
     @PostMapping("/signIn")
     public JsonResult SignIn(@RequestBody(required = true)JSONObject userInfo) {
         String username = userInfo.getString("username");
-        String passwrod = userInfo.getString("password");
+        String password = userInfo.getString("password");
 
-        User currentUser = userService.queryUserByName(username);
-        if(!currentUser.getPassword().equals(passwrod)) {
+        Student currentUser = studentService.queryUserByName(username);
+        if(!currentUser.getPassword().equals(password)) {
             return JsonResult.errorMsg("用户名或密码出错，请检查...");
         } else {
-            UserVO userVO = new UserVO();
-            userVO.setUsername(username);
-            return JsonResult.ok(userVO);
+            StudentVO studentVO = new StudentVO();
+            studentVO.setUsername(username);
+            return JsonResult.ok(studentVO);
         }
     }
 
-    @GetMapping("/test")
-    public String test() {
-        return "index";
-    }
+
 
 }

@@ -39,4 +39,7 @@ public class Contest {
 
     /** 比赛地点 */
     private String venue;
+
+    /** 比赛状态 */
+    private int contest_status;
 }

@@ -9,7 +9,7 @@ import lombok.Data;
  * @create: 2019-03-13 22:34
  **/
 @Data
-public class UserVO {
+public class StudentVO {
 
     private String username;
 }

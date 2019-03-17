@@ -1,8 +1,8 @@
 package com.contestgo.contestgobackend.Service.ServiceImpl;
 
-import com.contestgo.contestgobackend.Pojo.User;
-import com.contestgo.contestgobackend.Mapper.UserMapper;
-import com.contestgo.contestgobackend.Service.UserService;
+import com.contestgo.contestgobackend.Pojo.Student;
+import com.contestgo.contestgobackend.Mapper.StudentMapper;
+import com.contestgo.contestgobackend.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -15,17 +15,18 @@ import org.springframework.transaction.annotation.Transactional;
  * @create: 2019-03-06 19:44
  **/
 @Service
-public class UserServiceImpl implements UserService {
+public class StudentServiceImpl implements StudentService {
 
     @Autowired
-    private UserMapper userMapper;
+    private StudentMapper studentMapper;
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS)
-    public User queryUserByName(String username) {return userMapper.queryUserByName(username);}
+    public Student queryUserByName(String username) {return studentMapper.selectUserByName(username);}
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
-    public void createUser(String username, String password) {userMapper.createUser(username, password);}
+    public void createUser(String username, String password) {
+        studentMapper.insertUser(username, password);}
 
 }

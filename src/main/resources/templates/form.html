@@ -111,7 +111,7 @@
                                 <div>
                                     <p>
                                         <strong>Task 2</strong>
-                                        <span class="pull-right text-muted">28% Complete</span>
+                                        <span class="pull-right text-muted">30% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100" style="width: 28%">
@@ -127,7 +127,7 @@
                                 <div>
                                     <p>
                                         <strong>Task 3</strong>
-                                        <span class="pull-right text-muted">60% Complete</span>
+                                        <span class="pull-right text-muted">70% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
                                         <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
@@ -248,55 +248,27 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="index.html"><i class="fa fa-dashboard"></i> Admin主页 </a>
+                        <a href="index.html"><i class="fa fa-dashboard"></i> 教师主页 </a>
                     </li>
                     <li>
-                        <a href="form.html"><i class="fa fa-edit"></i> 比赛发布 </a>
+                        <a class="active-menu" href="form.html"><i class="fa fa-edit"></i> 比赛发布 </a>
                     </li>
                     <li>
                         <a href="table.html"><i class="fa fa-table"></i> 比赛详情 </a>
                     </li>
-                    <li>
-                        <a href="ui-elements.html"><i class="fa fa-desktop"></i> 设计详情 </a>
-                    </li>
-                    <li>
-                        <a href="chart.html"><i class="fa fa-bar-chart-o"></i> 图表详情 </a>
-                    </li>
-                    <li>
-                        <a href="tab-panel.html"><i class="fa fa-qrcode"></i> 选项页 </a>
-                    </li>
+                    <!--<li>-->
+                        <!--<a href="ui-elements.html"><i class="fa fa-desktop"></i> 设计详情 </a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="chart.html"><i class="fa fa-bar-chart-o"></i> 图表详情 </a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="tab-panel.html"><i class="fa fa-qrcode"></i> 选项页 </a>-->
+                    <!--</li>-->
 
-
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap"></i> 多级页面 <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-
-                                </ul>
-
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page </a>
-                    </li>
+                    <!--<li>-->
+                        <!--<a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page </a>-->
+                    <!--</li>-->
                 </ul>
 
             </div>
@@ -321,7 +293,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <form role="form">
+                                <form role="form" method="post" enctype="multipart/form-data">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                         <div class="form-group">
                                             <label>比赛名称</label>
@@ -330,7 +302,7 @@
                                         <div class="form-group">
                                             <label>比赛详情</label>
                                             <textarea class="form-control" rows="13"></textarea>
-                                            <p class="help-block word-doc">通过附件导入，仅支持word文档</p><input type="file">
+                                            <p class="help-block word-doc">通过附件导入，仅支持word文档(.doc, .docx)</p><input type="file">
                                         </div>
 
                                         <button type="submit" class="btn btn-info btn-style">提交</button>
@@ -349,7 +321,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="form-group">
-                                                报名截止日期: <input type="datetime-local" name="bdaytime">
+                                                报名截止日期: <input type="datetime-local" name="applydeadline">
                                             </div>
                                             <div class="form-group">
                                                 材料提交截止日期: <input type="datetime-local" name="bdaytime">
@@ -366,7 +338,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>附件上传</label>
-                                            <input type="file">
+                                            <input type="file" multiple="multiple" accept=".doc, .docx">
                                         </div>
                                         <h4>联系方式</h4>
                                         <div class="form-group input-group">
@@ -384,9 +356,7 @@
                     <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-12 -->
-            </div>
-			<footer><p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p></footer>
-			</div>
+
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->

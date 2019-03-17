@@ -1,10 +1,9 @@
 package com.contestgo.contestgobackend.Mapper;
 
-/**
- * @param: none
- * @description:
- * @author: KingJ
- * @create: 2019-03-15 20:30
- **/
-public class ContestMapper {
+import org.apache.ibatis.annotations.Insert;
+
+public interface ContestMapper {
+
+    @Insert("INSERT INTO contest(name, contest_details, contest_type, apply_deadline, submit_deadline, preliminary_date)")
+    void insertContest();
 }

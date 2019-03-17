@@ -6,16 +6,15 @@ import lombok.Data;
 
 /**
  * @param: none
- * @description: 用户类
+ * @description:
  * @author: KingJ
- * @create: 2019-03-06 19:28
+ * @create: 2019-03-17 10:24
  **/
 @Data
-@ApiModel(value = "用户对象", description = "这是用户对象")
-public class User {
+@ApiModel(value = "教师对象", description = "教师对象信息")
+public class Teacher {
 
-    @ApiModelProperty(hidden = true)
-    /** uid */
+    /** 教师id */
     private Integer id;
 
     @ApiModelProperty(value = "用户名", name = "username", example = "juix", required = true)
@@ -26,21 +25,19 @@ public class User {
     /** 用户密码 */
     private String password;
 
-    /** 用户学校 */
-    private String unversity;
+    @ApiModelProperty(value = "单位", name = "institution", example = "ECNU")
+    /** 用户单位 */
+    private String institution;
 
-    /** 用户院系 */
-    private String department;
+    @ApiModelProperty(value = "工号", name = "work_id", example = "10165101101")
+    /** 用户工号 */
+    private String work_id;
 
-    /** 用户学号 */
-    private String stu_num;
-
-    /**  */
-    private String work_num;
-
+    @ApiModelProperty(value = "手机号", name = "phone_num", example = "18111011213")
     /** 用户手机号 */
     private String phone_num;
 
+    @ApiModelProperty(value = "wxopenid", name = "openid", example = "xxx")
     /** 用户open_id */
     private String open_id;
 }
