@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * @param: none
@@ -25,7 +26,7 @@ public class ContestServiceImpl implements ContestService {
      Timestamp final_date, String venue, File file, String email_address */
     @Override
     public void createContest(String contest_name, String contest_details, String contest_type,
-                               String venue, String path, String email_address) {
+                              String venue, String path, String email_address) {
 
         /** contest_name, contest_details, contest_type, apply_deadline, submit_deadline,
          preliminary_date, quarter_final_date, final_date, venue, file, email_address */

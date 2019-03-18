@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.io.File;
 import java.sql.Timestamp;
+import java.util.List;
 
 public interface ContestMapper {
 
