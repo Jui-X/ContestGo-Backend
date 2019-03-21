@@ -28,7 +28,7 @@ public class WXLoginController {
     @PostMapping("/wxLogin")
     public JsonResult wxLogin(@RequestBody(required = true)JSONObject codeJson) {
         String code = codeJson.getString("code");
-        System.out.println(code);
+//        System.out.println(code);
 
 		/**
 		 *
