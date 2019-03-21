@@ -41,6 +41,19 @@ spring:
     port: 6379
     password:
 
+  mail:
+    host: smtp.qq.com
+    username: 501315555@qq.com
+    # 设置密码，该处的密码是QQ邮箱开启SMTP的授权码而非QQ密码
+    password: cvlveqbsyocibjaf
+    # STARTTLS[1]  是对纯文本通信协议的扩展。它提供一种方式将纯文本连接升级为加密连接（TLS或SSL），而不是另外使用一个端口作加密通信。
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            required: true
+
 server:
   port: 8081
   tomcat:
