@@ -1,13 +1,9 @@
 package com.contestgo.contestgobackend.Service.ServiceImpl;
 
-import com.contestgo.contestgobackend.Mapper.ContestMapper;
+import com.contestgo.contestgobackend.DAO.ContestDAO;
 import com.contestgo.contestgobackend.Service.ContestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.io.File;
-import java.sql.Timestamp;
-import java.util.List;
 
 /**
  * @param: none
@@ -19,7 +15,7 @@ import java.util.List;
 public class ContestServiceImpl implements ContestService {
 
     @Autowired
-    private ContestMapper contestMapper;
+    private ContestDAO contestMapper;
 
     /** String contest_name, String contest_details, String contest_type, Timestamp apply_deadline,
      Timestamp submit_deadline, Timestamp preliminary_date, Timestamp quarter_final_date,

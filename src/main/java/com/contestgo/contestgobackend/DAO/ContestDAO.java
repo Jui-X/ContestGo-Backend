@@ -1,13 +1,9 @@
-package com.contestgo.contestgobackend.Mapper;
+package com.contestgo.contestgobackend.DAO;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 
-import java.io.File;
-import java.sql.Timestamp;
-import java.util.List;
-
-public interface ContestMapper {
+public interface ContestDAO {
 
     /** "INSERT INTO contest(name, contest_details, contest_type, apply_deadline, submit_deadline, " +
      "quarter_final_date, final_date, venue, attachment, email_address) VALUES(#{contest_name}, #{contest_details}, " +

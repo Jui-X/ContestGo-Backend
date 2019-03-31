@@ -1,4 +1,4 @@
-package com.contestgo.contestgobackend.Pojo;
+package com.contestgo.contestgobackend.DO;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

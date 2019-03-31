@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ContestGo</title>
+    <!-- Bootstrap Styles-->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <!-- FontAwesome Styles-->
+    <!--<link href="assets/css/font-awesome.css" rel="stylesheet" />-->
+    <link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Morris Chart Styles-->
+    <link href="../static/js/morris/morris-0.4.3.min.css" rel="stylesheet" th:href="@{/js/morris/morris-0.4.3.min.css}"/>
+    <!-- Custom Styles-->
+    <link href="../static/css/custom-styles.css" rel="stylesheet" th:href="@{/css/custom-styles.css}"/>
+    <!-- Google Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <!-- TABLE STYLES-->
+    <link href="../static/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" th:href="@{/js/dataTables/dataTables.bootstrap.css}"/>
+    <!-- Styles-->
+    <link href="../static/css/style.css" rel="stylesheet" th:href="@{/css/style.css}"/>
+    <title>二维码登录</title>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="title">
+                <h1>QRCode</h1>
+            </div>
+            <div class="qrcode-img">
+                <img src="/QRcode/getQRCode" alt="QRCode is not ready..." style="width: 300px; height: 300px;">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

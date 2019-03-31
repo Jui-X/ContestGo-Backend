@@ -40,6 +40,7 @@ spring:
     host: 127.0.0.1
     port: 6379
     password:
+#    timeout: 0
 
   mail:
     host: smtp.qq.com
@@ -59,7 +60,6 @@ server:
   port: 8081
   tomcat:
     uri-encoding: UTF-8
-#    timeout: 0
 
 # Mybatis分页插件配置
 #pagehelper:

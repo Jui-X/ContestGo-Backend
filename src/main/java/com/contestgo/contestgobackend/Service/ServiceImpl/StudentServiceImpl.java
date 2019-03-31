@@ -1,7 +1,7 @@
 package com.contestgo.contestgobackend.Service.ServiceImpl;
 
-import com.contestgo.contestgobackend.Pojo.Student;
-import com.contestgo.contestgobackend.Mapper.StudentMapper;
+import com.contestgo.contestgobackend.DO.Student;
+import com.contestgo.contestgobackend.DAO.StudentDAO;
 import com.contestgo.contestgobackend.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
-    private StudentMapper studentMapper;
+    private StudentDAO studentMapper;
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS)

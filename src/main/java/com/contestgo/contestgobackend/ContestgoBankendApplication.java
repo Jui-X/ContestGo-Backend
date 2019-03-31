@@ -13,7 +13,7 @@ import javax.servlet.MultipartConfigElement;
 
 @SpringBootApplication
 @Configuration
-@MapperScan("com.contestgo.contestgobackend.Mapper")
+@MapperScan("com.contestgo.contestgobackend.DAO")
 @ComponentScan("com.contestgo.contestgobackend")
 public class ContestgoBankendApplication {
 

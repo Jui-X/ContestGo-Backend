@@ -1,6 +1,6 @@
 package com.contestgo.contestgobackend.Service;
 
-import com.contestgo.contestgobackend.Pojo.Student;
+import com.contestgo.contestgobackend.DO.Student;
 
 public interface StudentService {
 

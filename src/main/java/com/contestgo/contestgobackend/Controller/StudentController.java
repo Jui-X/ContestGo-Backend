@@ -1,7 +1,7 @@
 package com.contestgo.contestgobackend.Controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.contestgo.contestgobackend.Pojo.Student;
+import com.contestgo.contestgobackend.DO.Student;
 import com.contestgo.contestgobackend.Constant.RedisConstant;
 import com.contestgo.contestgobackend.Service.StudentService;
 import com.contestgo.contestgobackend.Utils.JsonResult;
