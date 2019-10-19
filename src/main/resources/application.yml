@@ -8,14 +8,14 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/contestgo?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
     username: root
-    password: 123456
+    password: 12345678
 
-    druid:
-      initial-size: 1
-      min-idle: 1
-      max-active: 20
-      test-on-borrow: true
-      stat-view-servlet.allow: true
+#    druid:
+#      initial-size: 1
+#      min-idle: 1
+#      max-active: 20
+#      test-on-borrow: true
+#      stat-view-servlet.allow: true
 
 # 热部署生效spring:
 # 设置重启的目录,添加那个目录的文件需要restart

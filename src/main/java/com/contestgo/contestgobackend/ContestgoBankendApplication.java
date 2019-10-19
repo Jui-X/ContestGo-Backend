@@ -5,7 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.unit.DataSize;
 
@@ -13,8 +12,7 @@ import javax.servlet.MultipartConfigElement;
 
 @SpringBootApplication
 @Configuration
-@MapperScan("com.contestgo.contestgobackend.DAO")
-@ComponentScan("com.contestgo.contestgobackend")
+@MapperScan("com.contestgo.contestgobackend.dao")
 public class ContestgoBankendApplication {
 
     public static void main(String[] args) {
