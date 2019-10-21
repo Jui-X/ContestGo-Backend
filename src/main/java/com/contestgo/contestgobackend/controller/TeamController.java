@@ -1,15 +1,13 @@
 package com.contestgo.contestgobackend.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.contestgo.contestgobackend.service.TeamService;
 import com.contestgo.contestgobackend.utils.JsonResult;
 import com.contestgo.contestgobackend.vo.MyTeamVO;
 import com.contestgo.contestgobackend.vo.TeamInfoVO;
 import com.contestgo.contestgobackend.vo.TeamVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,7 +36,7 @@ public class TeamController {
     }
 
     @GetMapping("/getTeamInfo")
-    public JsonResult getTeamInfo(@RequestParam("team_id")String team_number) {
+    public JsonResult getTeamInfo(@RequestParam("team_number")String team_number) {
         if (team_number == null || "".equals(team_number)) {
             return JsonResult.errorMsg("Team ID is not found.");
         }
@@ -65,5 +63,26 @@ public class TeamController {
         }
 
         return JsonResult.ok(myTeamList);
+    }
+
+    @PostMapping("/createTeam")
+    public JsonResult createTeam(@RequestBody()JSONObject teamInfo) {
+        if (teamInfo == null) {
+            return JsonResult.errorMsg("Team info is null..");
+        }
+
+        String team_name = teamInfo.getString("team_name");
+        String captain = teamInfo.getString("captain");
+        String team_info = teamInfo.getString("team_info");
+        String recruit_request = teamInfo.getString("recruit_request");
+        String workload = teamInfo.getString("workload");
+
+        if ("".equals(team_name) || "".equals(captain) || "".equals(team_info) || "".equals(recruit_request) || "".equals(workload)) {
+            return JsonResult.errorMsg("Team info is wrong! Please check again..");
+        }
+
+        teamService.createTeam(team_name, captain, team_info, recruit_request, workload);
+
+        return JsonResult.ok("发布组队信息成功");
     }
 }

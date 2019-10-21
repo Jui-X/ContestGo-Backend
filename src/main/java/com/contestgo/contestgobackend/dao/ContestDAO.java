@@ -10,17 +10,13 @@ import java.util.List;
 public interface ContestDAO {
 
     @Select("SELECT contest_id, contest_name FROM contest WHERE contest_type = ${@com.contestgo.contestgobackend.enums.ContestEnum@SCIENTIFIC_CONTEST.getType()}")
-    @Results({@Result(property = "id", column = "contest_id", id = true),
-            @Result(property = "name", column = "contest_name")})
     List<ContestVO> listScientificContest();
 
     @Select("SELECT contest_id, contest_name FROM contest WHERE contest_type = ${@com.contestgo.contestgobackend.enums.ContestEnum@SPORT_CONTEST.getType()}")
-    @Results({@Result(property = "id", column = "contest_id", id = true),
-            @Result(property = "name", column = "contest_name")})
     List<ContestVO> listSportContest();
 
     @Select("SELECT contest_id, contest_name, contest_detail, apply_deadline, submit_deadline, contest_contact, email_address, " +
-            "venue FROM contest WHERE contest_id = #{contest_id}")
+            "cover_img FROM contest WHERE contest_id = #{contest_id}")
     ContestDetailVO getContestDetail(@Param("contest_id")int contest_id);
 
     @Select("SELECT contest_name, attachment FROM contest WHERE contest_id = #{contest_id}")

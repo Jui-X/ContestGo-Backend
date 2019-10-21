@@ -30,6 +30,6 @@ public class ContestDetailVO {
     /** 邮箱地址 */
     private String email_address;
 
-    /** 比赛地点 */
-    private String venue;
+    /** 封面图 */
+    private String cover_img;
 }

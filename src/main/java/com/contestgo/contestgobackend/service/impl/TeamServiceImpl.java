@@ -55,4 +55,9 @@ public class TeamServiceImpl implements TeamService {
 
         return myTeamList;
     }
+
+    @Override
+    public void createTeam(String team_name, String captain, String team_info, String recruit_request, String workload) {
+        teamDAO.createTeam(team_name, captain, team_info, recruit_request, workload);
+    }
 }

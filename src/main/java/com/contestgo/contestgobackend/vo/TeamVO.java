@@ -10,7 +10,7 @@ import lombok.Data;
  **/
 @Data
 public class TeamVO {
-    private int team_id;
+    private int team_number;
     /** 队伍名称 */
     private String team_name;
     /** 队伍信息 */

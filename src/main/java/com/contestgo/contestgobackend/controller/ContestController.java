@@ -53,7 +53,7 @@ public class ContestController {
 
     @GetMapping("/getContestDetail")
     public JsonResult getContestDetail(@RequestParam("contest_id")String contest_id) {
-        if (contest_id == null) {
+        if (contest_id == null || "".equals(contest_id)) {
             return JsonResult.errorMsg("Contest ID is wrong!");
         }
 
@@ -68,13 +68,17 @@ public class ContestController {
 
     @PostMapping("/signUpContest")
     public JsonResult signUpContest(@RequestBody()JSONObject signUpInfo) {
+        if (signUpInfo == null) {
+            return JsonResult.errorMsg("Sign up info is null..");
+        }
+
         int contest_id = Integer.valueOf(signUpInfo.getString("contest_id"));
         int team_id = Integer.valueOf(signUpInfo.getString("team_id"));
         int captain_id = Integer.valueOf(signUpInfo.getString("captain_id"));
         String captain_name = signUpInfo.getString("captain_name");
         String captain_department = signUpInfo.getString("captain_department");
 
-        if (contest_id <= 0 || team_id <= 0 || captain_id <= 0 || captain_name == null || captain_department == null) {
+        if (contest_id <= 0 || team_id <= 0 || captain_id <= 0 || "".equals(captain_name) || "".equals(captain_department)) {
             return JsonResult.errorMsg("Sign up info is wrong, please check again!");
         }
 
