@@ -8,8 +8,11 @@ import org.apache.ibatis.annotations.Select;
 public interface StudentDAO {
 
     @Select("SELECT * FROM student WHERE name = #{username}")
-    public Student selectUserByName(@Param("username")String username);
+    Student selectUserByName(@Param("username")String username);
+
+    @Select("SELECT email_address FROM student WHERE name = #{username}")
+    String selectUserEmailByName(@Param("username")String username);
 
     @Insert("INSERT INTO student(name, password) VALUES(#{username}, #{password})")
-    public void insertUser(@Param("username")String stu_name, @Param("password") String password);
+    void insertUser(@Param("username")String stu_name, @Param("password") String password);
 }

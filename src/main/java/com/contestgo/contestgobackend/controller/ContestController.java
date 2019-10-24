@@ -3,6 +3,8 @@ package com.contestgo.contestgobackend.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.contestgo.contestgobackend.service.ContestService;
 import com.contestgo.contestgobackend.utils.JsonResult;
+import com.contestgo.contestgobackend.utils.SendMailUtil;
+import com.contestgo.contestgobackend.vo.ContestAttachmentVO;
 import com.contestgo.contestgobackend.vo.ContestDetailVO;
 import com.contestgo.contestgobackend.vo.ContestVO;
 import io.swagger.annotations.Api;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.mail.MessagingException;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -30,6 +33,9 @@ public class ContestController {
 
     @Autowired
     private ContestService contestService;
+
+    @Autowired
+    private SendMailUtil sendMailService;
 
     @GetMapping("/listContest/scientific")
     public JsonResult listScientificContest() {
@@ -85,6 +91,22 @@ public class ContestController {
         contestService.signUpContest(contest_id, team_id, captain_id, captain_name, captain_department);
 
         return JsonResult.ok("报名成功～");
+    }
+
+    @PostMapping("/sendAttachment")
+    public JsonResult sendMail(@RequestBody()JSONObject contest_info) throws MessagingException {
+        String receiver = contest_info.getString("email_address");
+        int contest_id = Integer.valueOf(contest_info.getString("contest_id"));
+
+        // 获得竞赛附件相关信息
+        ContestAttachmentVO contestAttachmentVO = contestService.getContestAttachment(contest_id);
+        if (contestAttachmentVO == null) {
+            return JsonResult.errorMsg("Contest Attachment is not found...");
+        }
+
+        sendMailService.sendContestAttachmentEmail(receiver, contestAttachmentVO);
+
+        return JsonResult.ok("已成功发送附件～～");
     }
 
 

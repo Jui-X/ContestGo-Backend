@@ -18,15 +18,20 @@ import org.springframework.transaction.annotation.Transactional;
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
-    private StudentDAO studentMapper;
+    private StudentDAO studentDAO;
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS)
-    public Student queryUserByName(String username) {return studentMapper.selectUserByName(username);}
+    public Student queryUserByName(String username) {return studentDAO.selectUserByName(username);}
+
+    @Override
+    public String queryUserEmailByName(String username) {
+        return studentDAO.selectUserEmailByName(username);
+    }
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
     public void createUser(String username, String password) {
-        studentMapper.insertUser(username, password);}
+        studentDAO.insertUser(username, password);}
 
 }

@@ -28,7 +28,7 @@ public class Student {
 
     @ApiModelProperty(value = "学校", name = "school", example = "ECNU")
     /** 用户学校 */
-    private String unversity;
+    private String university;
 
     @ApiModelProperty(value = "院系", name = "department", example = "scsse")
     /** 用户院系 */
@@ -41,6 +41,14 @@ public class Student {
     @ApiModelProperty(value = "手机号", name = "phone_num", example = "18111011213")
     /** 用户手机号 */
     private String phone_num;
+
+    @ApiModelProperty(value = "邮箱", name = "email_address", example = "xxx@126.com")
+    /** 用户邮箱 */
+    private String email_address;
+
+    @ApiModelProperty(value = "队伍ID", name = "team_id", example = "1")
+    /** 用户队伍ID */
+    private Integer team_id;
 
     @ApiModelProperty(value = "wxopenid", name = "openid", example = "xxx")
     /** 用户open_id */
