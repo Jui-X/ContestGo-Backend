@@ -14,5 +14,5 @@ public interface StudentDAO {
     String selectUserEmailByName(@Param("username")String username);
 
     @Insert("INSERT INTO student(name, password) VALUES(#{username}, #{password})")
-    void insertUser(@Param("username")String stu_name, @Param("password") String password);
+    void insertUser(@Param("username")String username, @Param("password") String password);
 }

@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 public class WXSession {
 
-    private String session_key;
+    private String sessionKey;
 
     private String openid;
 }

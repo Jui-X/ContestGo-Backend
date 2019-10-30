@@ -13,23 +13,23 @@ import java.sql.Timestamp;
 @Data
 public class ContestDetailVO {
     /** 比赛名称 */
-    private String contest_name;
+    private String contestName;
 
     /** 比赛详情 */
-    private String contest_detail;
+    private String contestDetail;
 
     /** 报名截止日期 */
-    private Timestamp apply_deadline;
+    private Timestamp applyDeadline;
 
     /** 材料提交截止日期 */
-    private Timestamp submit_deadline;
+    private Timestamp submitDeadline;
 
     /** 比赛联系人 */
-    private String contest_contact;
+    private String contestContact;
 
     /** 邮箱地址 */
-    private String email_address;
+    private String emailAddress;
 
     /** 封面图 */
-    private String cover_img;
+    private String coverImg;
 }

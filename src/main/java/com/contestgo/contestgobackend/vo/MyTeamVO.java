@@ -13,13 +13,13 @@ import java.util.List;
 @Data
 public class MyTeamVO {
     /** 队伍ID */
-    private int team_id;
+    private int teamId;
     /** 队伍名称 */
-    private String team_name;
+    private String teamName;
     /** 队长姓名 */
-    private String captain_name;
+    private String captainName;
     /** 队伍简介 */
-    private String team_info;
+    private String teamInfo;
     /** 队员信息 */
-    private List<String> team_members;
+    private List<String> teamMembers;
 }

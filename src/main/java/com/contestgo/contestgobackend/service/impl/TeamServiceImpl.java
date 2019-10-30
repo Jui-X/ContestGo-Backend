@@ -29,26 +29,26 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
-    public TeamInfoVO getTeamInfo(int team_number) {
-        return teamDAO.getTeamInfo(team_number);
+    public TeamInfoVO getTeamInfo(int teamNumber) {
+        return teamDAO.getTeamInfo(teamNumber);
     }
 
     @Override
-    public List<MyTeamVO> getMyTeam(int team_number) {
+    public List<MyTeamVO> getMyTeam(int stuId) {
         List<MyTeamVO> myTeamList = new ArrayList<>();
 
-        List<Integer> teamIDList = teamDAO.getMyTeam(team_number);
+        List<Integer> teamIDList = teamDAO.getMyTeam(stuId);
 
         for (Integer number : teamIDList) {
             MyTeamVO myTeamVO = new MyTeamVO();
-            myTeamVO.setTeam_id(number);
+            myTeamVO.setTeamId(number);
 
             TeamInfoVO teamInfoVO = teamDAO.getMyTeamInfo(number);
-            myTeamVO.setTeam_name(teamInfoVO.getTeam_name());
-            myTeamVO.setTeam_info(teamInfoVO.getTeam_info());
-            myTeamVO.setCaptain_name(teamInfoVO.getCaptain());
+            myTeamVO.setCaptainName(teamInfoVO.getTeamName());
+            myTeamVO.setTeamInfo(teamInfoVO.getTeamInfo());
+            myTeamVO.setCaptainName(teamInfoVO.getCaptain());
 
-            myTeamVO.setTeam_members(teamDAO.getMyTeamMembers(number));
+            myTeamVO.setTeamMembers(teamDAO.getMyTeamMembers(number));
 
             myTeamList.add(myTeamVO);
         }
@@ -57,7 +57,7 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
-    public void createTeam(String team_name, String captain, String team_info, String recruit_request, String workload) {
-        teamDAO.createTeam(team_name, captain, team_info, recruit_request, workload);
+    public void createTeam(String teamName, String captain, String teamInfo, String recruitRequest, String workload) {
+        teamDAO.createTeam(teamName, captain, teamInfo, recruitRequest, workload);
     }
 }

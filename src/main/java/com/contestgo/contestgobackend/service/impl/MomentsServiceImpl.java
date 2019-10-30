@@ -26,12 +26,12 @@ public class MomentsServiceImpl implements MomentsService {
     }
 
     @Override
-    public MomentsContentVO getMomentsContent(int moments_id) {
-        return momentsDAO.getMomentsContent(moments_id);
+    public MomentsContentVO getMomentsContent(int momentsId) {
+        return momentsDAO.getMomentsContent(momentsId);
     }
 
     @Override
-    public void postMoments(String moments_title, String moments_publisher, String moments_content) {
-        momentsDAO.insertMoments(moments_title, moments_publisher, moments_content);
+    public void postMoments(String momentsTitle, String momentsPublisher, String momentsContent) {
+        momentsDAO.insertMoments(momentsTitle, momentsPublisher, momentsContent);
     }
 }

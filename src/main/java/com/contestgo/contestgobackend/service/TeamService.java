@@ -9,9 +9,9 @@ import java.util.List;
 public interface TeamService {
     List<TeamVO> getTeam();
 
-    TeamInfoVO getTeamInfo(int team_number);
+    TeamInfoVO getTeamInfo(int teamNumber);
 
-    List<MyTeamVO> getMyTeam(int stu_id);
+    List<MyTeamVO> getMyTeam(int stuId);
 
-    void createTeam(String team_name, String captain, String team_info, String recruit_request, String workload);
+    void createTeam(String teamName, String captain, String teamInfo, String recruitRequest, String workload);
 }

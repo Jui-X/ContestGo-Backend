@@ -24,8 +24,8 @@ public class SendMailUtil {
     private JavaMailSender javaMailSender;
 
     public void sendContestAttachmentEmail(String receiver, ContestAttachmentVO attachment) throws MessagingException {
-        String contest_name = attachment.getContest_name();
-        String contest_attachment = attachment.getContest_attachment();
+        String contestName = attachment.getContestName();
+        String contestAttachment = attachment.getContestAttachment();
 
         // 需要发送的邮件
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
@@ -36,19 +36,19 @@ public class SendMailUtil {
         mimeMessageHelper.setFrom("501315555@qq.com");
         mimeMessageHelper.setTo(receiver);
 
-        mimeMessageHelper.setSubject(contest_name + "比赛的相关信息附件");
-        mimeMessageHelper.setText("附件是" + contest_name + "比赛的相关附件，请您查收~");
-        mimeMessageHelper.addAttachment("附件.docx", new FileSystemResource(contest_attachment));
+        mimeMessageHelper.setSubject(contestName + "比赛的相关信息附件");
+        mimeMessageHelper.setText("附件是" + contestName + "比赛的相关附件，请您查收~");
+        mimeMessageHelper.addAttachment("附件.docx", new FileSystemResource(contestAttachment));
 
         javaMailSender.send(mimeMessage);
     }
 
     public void sendResume(String receiver, ResumeVO resumeVO) throws MessagingException {
-        String stu_id = resumeVO.getStu_id();
+        String stu_id = resumeVO.getStuId();
         String username = resumeVO.getUsername();
         String school = resumeVO.getSchool();
         String department = resumeVO.getDepartment();
-        String phone_num = resumeVO.getPhone_num();
+        String phoneNum = resumeVO.getPhoneNum();
         String resume = resumeVO.getResume();
 
         StringBuilder resumeInfo = new StringBuilder();

@@ -35,12 +35,12 @@ public class MomentsController {
     }
 
     @GetMapping("/getMomentsContent")
-    public JsonResult getMomentsContent(@RequestParam("moments_id")String moments_id) {
-        if (moments_id == null || "".equals(moments_id)) {
+    public JsonResult getMomentsContent(@RequestParam("moments_id")String momentsId) {
+        if (momentsId == null || "".equals(momentsId)) {
             return JsonResult.errorMsg("Moments id is wrong, please check again..");
         }
 
-        MomentsContentVO momentsContent = momentsService.getMomentsContent(Integer.valueOf(moments_id));
+        MomentsContentVO momentsContent = momentsService.getMomentsContent(Integer.valueOf(momentsId));
 
         if (momentsContent == null) {
             return JsonResult.errorMsg("Moments is not found");
@@ -55,15 +55,15 @@ public class MomentsController {
             return JsonResult.errorMsg("Moments data is null, please check again!");
         }
 
-        String moments_title = moments.getString("moments_title");
-        String moments_publisher = moments.getString("moments_publisher");
-        String moments_content = moments.getString("moments_content");
+        String momentsTitle = moments.getString("moments_title");
+        String momentsPublisher = moments.getString("moments_publisher");
+        String momentsContent = moments.getString("moments_content");
 
-        if ("".equals(moments_title) || "".equals(moments_publisher) || "".equals(moments_content)) {
+        if ("".equals(momentsTitle) || "".equals(momentsPublisher) || "".equals(momentsContent)) {
             return JsonResult.errorMsg("Moments data is wrong..");
         }
 
-        momentsService.postMoments(moments_title, moments_publisher, moments_content);
+        momentsService.postMoments(momentsTitle, momentsPublisher, momentsContent);
 
         return JsonResult.ok("已成功发布动态～");
     }

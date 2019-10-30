@@ -14,10 +14,10 @@ public interface MomentsDAO {
 
     @Select("SELECT moments_id, moments_title, moments_publisher, moments_content, publish_time FROM moments " +
             "WHERE moments_id = #{moments_id}")
-    MomentsContentVO getMomentsContent(@Param("moments_id")int moments_id);
+    MomentsContentVO getMomentsContent(@Param("moments_id")int momentsId);
 
     @Insert("INSERT INTO moments(moments_title, moments_publisher, moments_content) " +
             "VALUES(#{moments_title}, #{moments_publisher}, #{moments_content})")
-    void insertMoments(@Param("moments_title")String moments_title, @Param("moments_publisher")String moments_publisher,
-                       @Param("moments_content")String moments_content);
+    void insertMoments(@Param("moments_title")String momentsTitle, @Param("moments_publisher")String momentsPublisher,
+                       @Param("moments_content")String momentsContent);
 }

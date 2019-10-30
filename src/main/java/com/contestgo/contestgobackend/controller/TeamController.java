@@ -46,12 +46,12 @@ public class TeamController {
     }
 
     @GetMapping("/getTeamInfo")
-    public JsonResult getTeamInfo(@RequestParam("team_number")String team_number) {
-        if (team_number == null || "".equals(team_number)) {
+    public JsonResult getTeamInfo(@RequestParam("team_number")String teamNumber) {
+        if (teamNumber == null || "".equals(teamNumber)) {
             return JsonResult.errorMsg("Team ID is not found.");
         }
 
-        TeamInfoVO teamInfoVO = teamService.getTeamInfo(Integer.valueOf(team_number));
+        TeamInfoVO teamInfoVO = teamService.getTeamInfo(Integer.valueOf(teamNumber));
 
         if (teamInfoVO == null) {
             return JsonResult.exceptionErrorMsg("Team info is not found");
@@ -61,12 +61,12 @@ public class TeamController {
     }
 
     @GetMapping("/getMyTeam")
-    public JsonResult getMyTeam(@RequestParam("stu_id")String stu_id) {
-        if (stu_id == null || "".equals(stu_id)) {
+    public JsonResult getMyTeam(@RequestParam("stu_id")String stuId) {
+        if (stuId == null || "".equals(stuId)) {
             return JsonResult.errorMsg("Your id is wrong! Please check again...");
         }
 
-        List<MyTeamVO> myTeamList = teamService.getMyTeam(Integer.valueOf(stu_id));
+        List<MyTeamVO> myTeamList = teamService.getMyTeam(Integer.valueOf(stuId));
 
         if (myTeamList == null || myTeamList.size() == 0) {
             return JsonResult.errorMsg("Your team is not found");
@@ -76,22 +76,22 @@ public class TeamController {
     }
 
     @PostMapping("/createTeam")
-    public JsonResult createTeam(@RequestBody()JSONObject teamInfo) {
-        if (teamInfo == null) {
+    public JsonResult createTeam(@RequestBody()JSONObject team) {
+        if (team == null) {
             return JsonResult.errorMsg("Team info is null..");
         }
 
-        String team_name = teamInfo.getString("team_name");
-        String captain = teamInfo.getString("captain");
-        String team_info = teamInfo.getString("team_info");
-        String recruit_request = teamInfo.getString("recruit_request");
-        String workload = teamInfo.getString("workload");
+        String teamName = team.getString("team_name");
+        String captain = team.getString("captain");
+        String teamInfo = team.getString("team_info");
+        String recruitRequest = team.getString("recruit_request");
+        String workload = team.getString("workload");
 
-        if ("".equals(team_name) || "".equals(captain) || "".equals(team_info) || "".equals(recruit_request) || "".equals(workload)) {
+        if ("".equals(teamName) || "".equals(captain) || "".equals(teamInfo) || "".equals(recruitRequest) || "".equals(workload)) {
             return JsonResult.errorMsg("Team info is wrong! Please check again..");
         }
 
-        teamService.createTeam(team_name, captain, team_info, recruit_request, workload);
+        teamService.createTeam(teamName, captain, teamInfo, recruitRequest, workload);
 
         return JsonResult.ok("发布组队信息成功");
     }
@@ -103,24 +103,24 @@ public class TeamController {
         }
 
         String captain = resumeInfo.getString("captain");
-        String stu_id = resumeInfo.getString("stu_id");
+        String stuId = resumeInfo.getString("stu_id");
         String username = resumeInfo.getString("username");
         String school = resumeInfo.getString("school");
         String department = resumeInfo.getString("department");
-        String phone_num = resumeInfo.getString("phone_num");
+        String phoneNum = resumeInfo.getString("phone_num");
         String resume = resumeInfo.getString("resume");
 
-        if ("".equals(captain) || "".equals(username) || "".equals(stu_id) || "".equals(school) || "".equals(department) ||
-                "".equals(phone_num) || "".equals(resume)) {
+        if ("".equals(captain) || "".equals(username) || "".equals(stuId) || "".equals(school) || "".equals(department) ||
+                "".equals(phoneNum) || "".equals(resume)) {
             return JsonResult.errorMsg("Resume Info is null..");
         }
 
         ResumeVO resumeVO = new ResumeVO();
-        resumeVO.setStu_id(stu_id);
+        resumeVO.setStuId(stuId);
         resumeVO.setUsername(username);
         resumeVO.setSchool(school);
         resumeVO.setDepartment(department);
-        resumeVO.setPhone_num(phone_num);
+        resumeVO.setPhoneNum(phoneNum);
         resumeVO.setResume(resume);
 
         String email = studentService.queryUserEmailByName(captain);

@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 public class ContestAttachmentVO {
     /** 比赛名称 */
-    private String contest_name;
+    private String contestName;
     /** 比赛附件 */
-    private String contest_attachment;
+    private String contestAttachment;
 }

@@ -10,9 +10,9 @@ import lombok.Data;
  **/
 @Data
 public class MomentsVO {
-    private int moments_id;
+    private int momentsId;
     /** 动态标题 */
-    private String moments_title;
+    private String momentsTitle;
     /** 动态发布者 */
-    private String moments_publisher;
+    private String momentsPublisher;
 }

@@ -10,14 +10,14 @@ import java.sql.Timestamp;
  **/
 public class MomentsContentVO {
 
-    private int moments_id;
+    private int momentsId;
     /** 动态标题 */
-    private String moments_title;
+    private String momentsTitle;
     /** 动态发布者 */
-    private String moments_publisher;
+    private String momentsPublisher;
     /** 动态详情 */
-    private String moments_content;
+    private String momentsContent;
     /** 发布时间 */
-    private Timestamp publish_time;
+    private Timestamp publishTime;
 
 }

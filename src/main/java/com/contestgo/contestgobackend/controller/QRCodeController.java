@@ -70,7 +70,7 @@ public class QRCodeController {
         String open_id = session.getOpenid();
 
         if (redis.get(open_id) != null) {
-            if (redis.get(open_id) == session.getSession_key()) {
+            if (redis.get(open_id) == session.getSessionKey()) {
                 return JsonResult.ok();
             }
             else {return JsonResult.errorMsg("登录出错！请在小程序端重新授权登陆。");}

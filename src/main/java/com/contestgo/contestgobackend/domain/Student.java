@@ -18,9 +18,9 @@ public class Student {
     /** uid */
     private Integer id;
 
-    @ApiModelProperty(value = "用户名", name = "stu_name", example = "juix", required = true)
+    @ApiModelProperty(value = "用户名", name = "stuName", example = "juix", required = true)
     /** 用户名 */
-    private String stu_name;
+    private String stuName;
 
     @ApiModelProperty(value = "密码", name = "password", example = "123456", required = true)
     /** 用户密码 */
@@ -34,23 +34,23 @@ public class Student {
     /** 用户院系 */
     private String department;
 
-    @ApiModelProperty(value = "学号", name = "stu_id", example = "10165101101")
+    @ApiModelProperty(value = "学号", name = "stuId", example = "10165101101")
     /** 用户学号 */
-    private String stu_id;
+    private String stuId;
 
-    @ApiModelProperty(value = "手机号", name = "phone_num", example = "18111011213")
+    @ApiModelProperty(value = "手机号", name = "phoneNum", example = "18111011213")
     /** 用户手机号 */
-    private String phone_num;
+    private String phoneNum;
 
-    @ApiModelProperty(value = "邮箱", name = "email_address", example = "xxx@126.com")
+    @ApiModelProperty(value = "邮箱", name = "emailAddress", example = "xxx@126.com")
     /** 用户邮箱 */
-    private String email_address;
+    private String emailAddress;
 
     @ApiModelProperty(value = "队伍ID", name = "team_id", example = "1")
     /** 用户队伍ID */
-    private Integer team_id;
+    private Integer teamId;
 
     @ApiModelProperty(value = "wxopenid", name = "openid", example = "xxx")
     /** 用户open_id */
-    private String open_id;
+    private String openId;
 }

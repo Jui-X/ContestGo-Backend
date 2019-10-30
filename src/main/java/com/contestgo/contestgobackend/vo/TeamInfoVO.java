@@ -11,15 +11,15 @@ import lombok.Data;
 @Data
 public class TeamInfoVO {
     /** id */
-    private int team_number;
+    private int teamNumber;
     /** 队伍名称 */
-    private String team_name;
+    private String teamName;
     /** 队长 */
     private String captain;
     /** 队伍信息 */
-    private String team_info;
+    private String teamInfo;
     /** 招募要求 */
-    private String recruit_request;
+    private String recruitRequest;
     /** 工作量 */
     private String workload;
 }

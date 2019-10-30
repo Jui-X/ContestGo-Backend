@@ -19,7 +19,7 @@ public class Teacher {
 
     @ApiModelProperty(value = "用户名", name = "teacher_name", example = "juix", required = true)
     /** 用户名 */
-    private String teacher_name;
+    private String teacherName;
 
     @ApiModelProperty(value = "密码", name = "password", example = "123456", required = true)
     /** 用户密码 */
@@ -31,13 +31,13 @@ public class Teacher {
 
     @ApiModelProperty(value = "工号", name = "work_id", example = "10165101101")
     /** 用户工号 */
-    private String work_id;
+    private String workId;
 
-    @ApiModelProperty(value = "手机号", name = "phone_num", example = "18111011213")
+    @ApiModelProperty(value = "手机号", name = "phoneNum", example = "18111011213")
     /** 用户手机号 */
-    private String phone_num;
+    private String phoneNum;
 
     @ApiModelProperty(value = "wxopenid", name = "openid", example = "xxx")
     /** 用户open_id */
-    private String open_id;
+    private String openId;
 }

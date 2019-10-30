@@ -58,12 +58,12 @@ public class ContestController {
     }
 
     @GetMapping("/getContestDetail")
-    public JsonResult getContestDetail(@RequestParam("contest_id")String contest_id) {
-        if (contest_id == null || "".equals(contest_id)) {
+    public JsonResult getContestDetail(@RequestParam("contest_id")String contestId) {
+        if (contestId == null || "".equals(contestId)) {
             return JsonResult.errorMsg("Contest ID is wrong!");
         }
 
-        ContestDetailVO contestDetailVO = contestService.getContestDetail(Integer.valueOf(contest_id));
+        ContestDetailVO contestDetailVO = contestService.getContestDetail(Integer.valueOf(contestId));
 
         if (contestDetailVO == null) {
             return JsonResult.errorMsg("Contest is not found.");
@@ -78,28 +78,28 @@ public class ContestController {
             return JsonResult.errorMsg("Sign up info is null..");
         }
 
-        int contest_id = Integer.valueOf(signUpInfo.getString("contest_id"));
-        int team_id = Integer.valueOf(signUpInfo.getString("team_id"));
-        int captain_id = Integer.valueOf(signUpInfo.getString("captain_id"));
-        String captain_name = signUpInfo.getString("captain_name");
-        String captain_department = signUpInfo.getString("captain_department");
+        int contestId = Integer.valueOf(signUpInfo.getString("contest_id"));
+        int teamId = Integer.valueOf(signUpInfo.getString("team_id"));
+        int captainId = Integer.valueOf(signUpInfo.getString("captain_id"));
+        String captainName = signUpInfo.getString("captain_name");
+        String captainDepartment = signUpInfo.getString("captain_department");
 
-        if (contest_id <= 0 || team_id <= 0 || captain_id <= 0 || "".equals(captain_name) || "".equals(captain_department)) {
+        if (contestId <= 0 || teamId <= 0 || captainId <= 0 || "".equals(captainName) || "".equals(captainDepartment)) {
             return JsonResult.errorMsg("Sign up info is wrong, please check again!");
         }
 
-        contestService.signUpContest(contest_id, team_id, captain_id, captain_name, captain_department);
+        contestService.signUpContest(contestId, teamId, captainId, captainName, captainDepartment);
 
         return JsonResult.ok("报名成功～");
     }
 
     @PostMapping("/sendAttachment")
-    public JsonResult sendMail(@RequestBody()JSONObject contest_info) throws MessagingException {
-        String receiver = contest_info.getString("email_address");
-        int contest_id = Integer.valueOf(contest_info.getString("contest_id"));
+    public JsonResult sendMail(@RequestBody()JSONObject contestInfo) throws MessagingException {
+        String receiver = contestInfo.getString("emailAddress");
+        int contestId = Integer.valueOf(contestInfo.getString("contest_id"));
 
         // 获得竞赛附件相关信息
-        ContestAttachmentVO contestAttachmentVO = contestService.getContestAttachment(contest_id);
+        ContestAttachmentVO contestAttachmentVO = contestService.getContestAttachment(contestId);
         if (contestAttachmentVO == null) {
             return JsonResult.errorMsg("Contest Attachment is not found...");
         }
@@ -111,38 +111,38 @@ public class ContestController {
 
 
 
-    /** @RequestParam("contest_name")String contest_name, @RequestParam("contest_details")String contest_details,
-     @RequestParam("contest_type")String contest_type, @Param("apply_ddl")String apply_ddl,
+    /** @RequestParam("contest_name")String contestName, @RequestParam("contest_details")String contest_details,
+     @RequestParam("contest_type")String contestType, @Param("apply_ddl")String apply_ddl,
      @Param("submit_ddl")String submit_ddl, @Param("preliminary")String preliminary,
-     @Param("quarter_final")String quarter_final, @Param("final_date")String final_date,
+     @Param("quarter_final")String quarter_final, @Param("finalDate")String finalDate,
      @RequestParam("venue")String venue, @RequestParam("attachment")MultipartFile attachment,
-     @RequestParam("email_address")String email_address */
+     @RequestParam("email_address")String emailAddress */
     @PostMapping("/create")
     /** @RequestBody(required = true)JSONObject contestInfo */
-    public JsonResult createContest(@RequestParam("contest_name")String contest_name, @RequestParam("contest_details")String contest_details,
-                                @RequestParam("contest_type")String contest_type, @Param("apply_ddl")String apply_ddl,
-                                @Param("submit_ddl")String submit_ddl, @Param("preliminary")String preliminary,
-                                @Param("quarter_final")String quarter_final, @Param("final_date")String final_date,
+    public JsonResult createContest(@RequestParam("contestName")String contestName, @RequestParam("contest_details")String contestDetail,
+                                @RequestParam("contestType")String contestType, @Param("apply_ddl")String applyDDL,
+                                @Param("submit_ddl")String submitDDL, @Param("preliminary")String preliminary,
+                                @Param("quarter_final")String quarterFinal, @Param("finalDate")String finalDate,
                                 @RequestParam("venue")String venue, @RequestParam("attachment")List<MultipartFile> attachments,
-                                @RequestParam("email_address")String email_address) {
+                                @RequestParam("emailAddress")String emailAddress) {
 //        String name = contestInfo.getString("name");
 //        String detail = contestInfo.getString("detail");
 //        String type = contestInfo.getString("type");
 //        String venue = contestInfo.getString("venue");
 //        Timestamp apply_ddl = contestInfo.getTimestamp("applyddl");
 //        Timestamp submit_ddl = contestInfo.getTimestamp("submitddl");
-//        Timestamp preliminary_date = contestInfo.getTimestamp("preliminary");
-//        Timestamp quarter_final_date = contestInfo.getTimestamp("quarter_final");
-//        Timestamp final_date = contestInfo.getTimestamp("final");
+//        Timestamp preliminaryDate = contestInfo.getTimestamp("preliminary");
+//        Timestamp quarterFinalDate = contestInfo.getTimestamp("quarter_final");
+//        Timestamp finalDate = contestInfo.getTimestamp("final");
 //        String attachment = contestInfo.getString("attachment");
-//        String email_address = contestInfo.getString("email_address");
+//        String emailAddress = contestInfo.getString("emailAddress");
 
 //        if (attachment.isEmpty()) {return JsonResult.errorMsg("上传附件不能为空！");}
         StringBuffer paths = new StringBuffer();
         for(MultipartFile attachment: attachments) {
             String fileName = attachment.getOriginalFilename();
-            String parent_path = "C:\\Users\\50131\\Documents\\GitHub\\ContestGo-Backend\\src\\main\\resources\\file";
-            File file = new File(parent_path + "\\" + fileName);
+            String parentPath = "C:\\Users\\50131\\Documents\\GitHub\\ContestGo-Backend\\src\\main\\resources\\file";
+            File file = new File(parentPath + "\\" + fileName);
 
             try {
                 attachment.transferTo(file);
@@ -156,21 +156,21 @@ public class ContestController {
             paths.append(path + "; ");
         }
 
-//        Timestamp apply_deadline = apply_ddl == null ? null : Timestamp.valueOf(apply_ddl);
-//        Timestamp submit_deadline = submit_ddl == null ? null : Timestamp.valueOf(submit_ddl);
-//        Timestamp preliminary_date = preliminary == null ? null : Timestamp.valueOf(preliminary);
-//        Timestamp quarter_final_date = quarter_final == null ? null : Timestamp.valueOf(quarter_final);
-//        Timestamp date = final_date == null ? null : Timestamp.valueOf(final_date);
+//        Timestamp applyDeadline = apply_ddl == null ? null : Timestamp.valueOf(apply_ddl);
+//        Timestamp submitDeadline = submit_ddl == null ? null : Timestamp.valueOf(submit_ddl);
+//        Timestamp preliminaryDate = preliminary == null ? null : Timestamp.valueOf(preliminary);
+//        Timestamp quarterFinalDate = quarter_final == null ? null : Timestamp.valueOf(quarter_final);
+//        Timestamp date = finalDate == null ? null : Timestamp.valueOf(finalDate);
 
-        /** name, detail, type, apply_deadline, submit_deadline, preliminary_date,
-         quarter_final_date, date, venue, file, email_address */
+        /** name, detail, type, applyDeadline, submitDeadline, preliminaryDate,
+         quarterFinalDate, date, venue, file, emailAddress */
 
-        contestService.createContest(contest_name, contest_details, contest_type, venue, paths.toString(), email_address);
+        contestService.createContest(contestName, contestDetail, contestType, venue, paths.toString(), emailAddress);
 
         Map<String, String> map = new HashMap<>();
-        map.put("contest_name", contest_name);
-        map.put("contest_details", contest_details);
-        map.put("contest_type", contest_type);
+        map.put("contest_name", contestName);
+        map.put("contest_details", contestDetail);
+        map.put("contest_type", contestType);
 
         return JsonResult.ok(map);
     }

@@ -11,9 +11,9 @@ import lombok.Data;
 @Data
 public class ResumeVO {
     private String username;
-    private String stu_id;
+    private String stuId;
     private String school;
     private String department;
-    private String phone_num;
+    private String phoneNum;
     private String resume;
 }

@@ -33,7 +33,7 @@ public class WXLoginController {
 
 
         redis.set("user-redis-session" + session.getOpenid(),
-                    session.getSession_key(),
+                    session.getSessionKey(),
                     RedisConstant.EXPIRE_TIME);
 
         Map<String, String> result = new ConcurrentHashMap<>();

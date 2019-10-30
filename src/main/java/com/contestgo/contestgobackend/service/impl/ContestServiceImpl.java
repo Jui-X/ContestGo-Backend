@@ -22,18 +22,6 @@ public class ContestServiceImpl implements ContestService {
     @Autowired
     private ContestDAO contestDAO;
 
-    /** String contest_name, String contest_details, String contest_type, Timestamp apply_deadline,
-     Timestamp submit_deadline, Timestamp preliminary_date, Timestamp quarter_final_date,
-     Timestamp final_date, String venue, File file, String email_address */
-    @Override
-    public void createContest(String contest_name, String contest_details, String contest_type,
-                              String venue, String path, String email_address) {
-
-        /** contest_name, contest_details, contest_type, apply_deadline, submit_deadline,
-         preliminary_date, quarter_final_date, final_date, venue, file, email_address */
-        contestDAO.insertContest(contest_name, contest_details, contest_type, venue, path, email_address);
-    }
-
     @Override
     public List<ContestVO> listScientificContest() {
         return contestDAO.listScientificContest();
@@ -55,9 +43,19 @@ public class ContestServiceImpl implements ContestService {
     }
 
     @Override
-    public void signUpContest(int contest_id, int team_id, int captain_id, String captain_name, String captain_department) {
-        contestDAO.insertTeamInContest(contest_id, team_id, captain_id, captain_name, captain_department);
+    public void signUpContest(int contestId, int teamId, int captainId, String captainName, String captainDepartment) {
+        contestDAO.insertTeamInContest(contestId, teamId, captainId, captainName, captainDepartment);
     }
 
+    /** String contestName, String contest_details, String contestType, Timestamp applyDeadline,
+     Timestamp submitDeadline, Timestamp preliminaryDate, Timestamp quarterFinalDate,
+     Timestamp finalDate, String venue, File file, String emailAddress */
+    @Override
+    public void createContest(String contestName, String contestDetail, String contestType,
+                              String venue, String path, String emailAddress) {
 
+        /** contestName, contest_details, contestType, applyDeadline, submitDeadline,
+         preliminaryDate, quarterFinalDate, finalDate, venue, file, emailAddress */
+        contestDAO.insertContest(contestName, contestDetail, contestType, venue, path, emailAddress);
+    }
 }

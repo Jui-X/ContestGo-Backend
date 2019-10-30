@@ -10,7 +10,7 @@ import lombok.Data;
  **/
 @Data
 public class ContestVO {
-    String contest_id;
+    String contestId;
     /** 赛事名称 */
-    String contest_name;
+    String contestName;
 }

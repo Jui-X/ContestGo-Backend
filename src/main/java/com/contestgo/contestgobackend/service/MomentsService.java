@@ -8,7 +8,7 @@ import java.util.List;
 public interface MomentsService {
     List<MomentsVO> getMoments();
 
-    MomentsContentVO getMomentsContent(int moments_id);
+    MomentsContentVO getMomentsContent(int momentsId);
 
-    void postMoments(String moments_title, String moments_publisher, String moments_content);
+    void postMoments(String momentsTitle, String momentsPublisher, String momentsContent);
 }

@@ -14,37 +14,37 @@ import java.sql.Timestamp;
 public class Contest {
 
     /** 比赛名称 */
-    private String contest_name;
+    private String contestName;
 
     /** 比赛详情 */
-    private String contest_detail;
+    private String contestDetail;
 
     /** 比赛类型 */
-    private String contest_type;
+    private String contestType;
 
     /** 报名截止日期 */
-    private Timestamp apply_deadline;
+    private Timestamp applyDeadline;
 
     /** 材料提交截止日期 */
-    private Timestamp submit_deadline;
+    private Timestamp submitDeadline;
 
     /** 比赛状态 */
-    private int contest_status;
+    private int contestStatus;
 
     /** 初赛日期 */
-    private Timestamp preliminary_date;
+    private Timestamp preliminaryDate;
 
     /** 复赛日期 */
-    private Timestamp quarter_final_date;
+    private Timestamp quarterFinalDate;
 
     /** 决赛日期 */
-    private Timestamp final_date;
+    private Timestamp finalDate;
 
     /** 比赛联系人 */
-    private String contest_contact;
+    private String contestContact;
 
     /** 邮箱地址 */
-    private String email_address;
+    private String emailAddress;
 
     /** 比赛地点 */
     private String venue;

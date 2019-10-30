@@ -15,11 +15,11 @@ import java.sql.*;
 @ApiModel(value = "动态", description = "动态分享")
 public class Moments {
     /** id */
-    private int moments_id;
+    private int momentsId;
     /** 发布者 */
-    private String moments_publisher;
+    private String momentsPublisher;
     /** 发布内容 */
-    private String moments_content;
+    private String momentsContent;
     /** 发布时间 */
-    private Timestamp publish_time;
+    private Timestamp publishTime;
 }
