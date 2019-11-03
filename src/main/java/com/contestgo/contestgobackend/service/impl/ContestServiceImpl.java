@@ -33,13 +33,13 @@ public class ContestServiceImpl implements ContestService {
     }
 
     @Override
-    public ContestDetailVO getContestDetail(int contest_id) {
-        return contestDAO.getContestDetail(contest_id);
+    public ContestDetailVO getContestDetail(int contestId) {
+        return contestDAO.getContestDetail(contestId);
     }
 
     @Override
-    public ContestAttachmentVO getContestAttachment(int contest_id) {
-        return contestDAO.getContestAttachment(contest_id);
+    public ContestAttachmentVO getContestAttachment(int contestId) {
+        return contestDAO.getContestAttachment(contestId);
     }
 
     @Override

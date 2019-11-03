@@ -46,7 +46,7 @@ public class TeamController {
     }
 
     @GetMapping("/getTeamInfo")
-    public JsonResult getTeamInfo(@RequestParam("team_number")String teamNumber) {
+    public JsonResult getTeamInfo(@RequestParam("teamNumber")String teamNumber) {
         if (teamNumber == null || "".equals(teamNumber)) {
             return JsonResult.errorMsg("Team ID is not found.");
         }
@@ -61,12 +61,12 @@ public class TeamController {
     }
 
     @GetMapping("/getMyTeam")
-    public JsonResult getMyTeam(@RequestParam("stu_id")String stuId) {
+    public JsonResult getMyTeam(@RequestParam("stuId")String stuId) {
         if (stuId == null || "".equals(stuId)) {
             return JsonResult.errorMsg("Your id is wrong! Please check again...");
         }
 
-        List<MyTeamVO> myTeamList = teamService.getMyTeam(Integer.valueOf(stuId));
+        List<MyTeamVO> myTeamList = teamService.getMyTeam(stuId);
 
         if (myTeamList == null || myTeamList.size() == 0) {
             return JsonResult.errorMsg("Your team is not found");
@@ -81,10 +81,10 @@ public class TeamController {
             return JsonResult.errorMsg("Team info is null..");
         }
 
-        String teamName = team.getString("team_name");
+        String teamName = team.getString("teamName");
         String captain = team.getString("captain");
-        String teamInfo = team.getString("team_info");
-        String recruitRequest = team.getString("recruit_request");
+        String teamInfo = team.getString("teamInfo");
+        String recruitRequest = team.getString("recruitRequest");
         String workload = team.getString("workload");
 
         if ("".equals(teamName) || "".equals(captain) || "".equals(teamInfo) || "".equals(recruitRequest) || "".equals(workload)) {
@@ -103,11 +103,11 @@ public class TeamController {
         }
 
         String captain = resumeInfo.getString("captain");
-        String stuId = resumeInfo.getString("stu_id");
+        String stuId = resumeInfo.getString("stuId");
         String username = resumeInfo.getString("username");
         String school = resumeInfo.getString("school");
         String department = resumeInfo.getString("department");
-        String phoneNum = resumeInfo.getString("phone_num");
+        String phoneNum = resumeInfo.getString("phoneNum");
         String resume = resumeInfo.getString("resume");
 
         if ("".equals(captain) || "".equals(username) || "".equals(stuId) || "".equals(school) || "".equals(department) ||

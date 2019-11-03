@@ -58,7 +58,7 @@ public class ContestController {
     }
 
     @GetMapping("/getContestDetail")
-    public JsonResult getContestDetail(@RequestParam("contest_id")String contestId) {
+    public JsonResult getContestDetail(@RequestParam("contestId")String contestId) {
         if (contestId == null || "".equals(contestId)) {
             return JsonResult.errorMsg("Contest ID is wrong!");
         }
@@ -78,11 +78,11 @@ public class ContestController {
             return JsonResult.errorMsg("Sign up info is null..");
         }
 
-        int contestId = Integer.valueOf(signUpInfo.getString("contest_id"));
-        int teamId = Integer.valueOf(signUpInfo.getString("team_id"));
-        int captainId = Integer.valueOf(signUpInfo.getString("captain_id"));
-        String captainName = signUpInfo.getString("captain_name");
-        String captainDepartment = signUpInfo.getString("captain_department");
+        int contestId = Integer.valueOf(signUpInfo.getString("contestId"));
+        int teamId = Integer.valueOf(signUpInfo.getString("teamNumber"));
+        int captainId = Integer.valueOf(signUpInfo.getString("captainId"));
+        String captainName = signUpInfo.getString("captainName");
+        String captainDepartment = signUpInfo.getString("captainDepartment");
 
         if (contestId <= 0 || teamId <= 0 || captainId <= 0 || "".equals(captainName) || "".equals(captainDepartment)) {
             return JsonResult.errorMsg("Sign up info is wrong, please check again!");
@@ -96,7 +96,7 @@ public class ContestController {
     @PostMapping("/sendAttachment")
     public JsonResult sendMail(@RequestBody()JSONObject contestInfo) throws MessagingException {
         String receiver = contestInfo.getString("emailAddress");
-        int contestId = Integer.valueOf(contestInfo.getString("contest_id"));
+        int contestId = Integer.valueOf(contestInfo.getString("contestId"));
 
         // 获得竞赛附件相关信息
         ContestAttachmentVO contestAttachmentVO = contestService.getContestAttachment(contestId);

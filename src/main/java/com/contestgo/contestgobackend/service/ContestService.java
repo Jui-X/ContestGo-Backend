@@ -18,9 +18,9 @@ public interface ContestService {
 
     List<ContestVO> listSportContest();
 
-    ContestDetailVO getContestDetail(int contest_id);
+    ContestDetailVO getContestDetail(int contestId);
 
-    ContestAttachmentVO getContestAttachment(int contest_id);
+    ContestAttachmentVO getContestAttachment(int contestId);
 
     void signUpContest(int contestId, int teamId, int captainId, String captainName, String captainDepartment);
 }

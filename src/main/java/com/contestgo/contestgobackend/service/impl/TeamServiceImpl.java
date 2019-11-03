@@ -34,23 +34,27 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
-    public List<MyTeamVO> getMyTeam(int stuId) {
+    public List<MyTeamVO> getMyTeam(String stuId) {
         List<MyTeamVO> myTeamList = new ArrayList<>();
 
         List<Integer> teamIDList = teamDAO.getMyTeam(stuId);
 
         for (Integer number : teamIDList) {
             MyTeamVO myTeamVO = new MyTeamVO();
-            myTeamVO.setTeamId(number);
+            myTeamVO.setTeamNumber(number);
 
             TeamInfoVO teamInfoVO = teamDAO.getMyTeamInfo(number);
-            myTeamVO.setCaptainName(teamInfoVO.getTeamName());
-            myTeamVO.setTeamInfo(teamInfoVO.getTeamInfo());
-            myTeamVO.setCaptainName(teamInfoVO.getCaptain());
+            if (teamInfoVO != null) {
+                myTeamVO.setTeamNumber(teamInfoVO.getTeamNumber());
+                myTeamVO.setTeamName(teamInfoVO.getTeamName());
+                myTeamVO.setCaptain(teamInfoVO.getTeamName());
+                myTeamVO.setTeamInfo(teamInfoVO.getTeamInfo());
+                myTeamVO.setCaptain(teamInfoVO.getCaptain());
 
-            myTeamVO.setTeamMembers(teamDAO.getMyTeamMembers(number));
+                myTeamVO.setTeamMembers(teamDAO.getMyTeamMembers(number));
 
-            myTeamList.add(myTeamVO);
+                myTeamList.add(myTeamVO);
+            }
         }
 
         return myTeamList;

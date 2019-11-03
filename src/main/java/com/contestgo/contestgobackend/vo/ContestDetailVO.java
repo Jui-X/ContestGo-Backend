@@ -12,6 +12,7 @@ import java.sql.Timestamp;
  **/
 @Data
 public class ContestDetailVO {
+    Integer contestId;
     /** 比赛名称 */
     private String contestName;
 

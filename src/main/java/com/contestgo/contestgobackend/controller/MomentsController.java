@@ -35,7 +35,7 @@ public class MomentsController {
     }
 
     @GetMapping("/getMomentsContent")
-    public JsonResult getMomentsContent(@RequestParam("moments_id")String momentsId) {
+    public JsonResult getMomentsContent(@RequestParam("momentsId")String momentsId) {
         if (momentsId == null || "".equals(momentsId)) {
             return JsonResult.errorMsg("Moments id is wrong, please check again..");
         }
@@ -55,9 +55,9 @@ public class MomentsController {
             return JsonResult.errorMsg("Moments data is null, please check again!");
         }
 
-        String momentsTitle = moments.getString("moments_title");
-        String momentsPublisher = moments.getString("moments_publisher");
-        String momentsContent = moments.getString("moments_content");
+        String momentsTitle = moments.getString("momentsTitle");
+        String momentsPublisher = moments.getString("momentsPublisher");
+        String momentsContent = moments.getString("momentsContent");
 
         if ("".equals(momentsTitle) || "".equals(momentsPublisher) || "".equals(momentsContent)) {
             return JsonResult.errorMsg("Moments data is wrong..");

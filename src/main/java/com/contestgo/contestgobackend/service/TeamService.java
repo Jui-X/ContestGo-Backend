@@ -11,7 +11,7 @@ public interface TeamService {
 
     TeamInfoVO getTeamInfo(int teamNumber);
 
-    List<MyTeamVO> getMyTeam(int stuId);
+    List<MyTeamVO> getMyTeam(String stuId);
 
     void createTeam(String teamName, String captain, String teamInfo, String recruitRequest, String workload);
 }

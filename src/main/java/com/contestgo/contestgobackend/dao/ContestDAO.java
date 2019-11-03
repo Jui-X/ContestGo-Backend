@@ -10,16 +10,30 @@ import java.util.List;
 public interface ContestDAO {
 
     @Select("SELECT contest_id, contest_name FROM contest WHERE contest_type = ${@com.contestgo.contestgobackend.enums.ContestEnum@SCIENTIFIC_CONTEST.getType()}")
+    @Results({@Result(column = "contest_id", property = "contestId", id =true),
+            @Result(column = "contest_name", property = "contestName")})
     List<ContestVO> listScientificContest();
 
+    @Results({@Result(column = "contest_id", property = "contestId", id =true),
+              @Result(column = "contest_name", property = "contestName")})
     @Select("SELECT contest_id, contest_name FROM contest WHERE contest_type = ${@com.contestgo.contestgobackend.enums.ContestEnum@SPORT_CONTEST.getType()}")
     List<ContestVO> listSportContest();
 
     @Select("SELECT contest_id, contest_name, contest_detail, apply_deadline, submit_deadline, contest_contact, email_address, " +
             "cover_img FROM contest WHERE contest_id = #{contest_id}")
+    @Results({@Result(column = "contest_id", property = "contestId", id =true),
+              @Result(column = "contest_name", property = "contestName"),
+              @Result(column = "contest_detail", property = "contestDetail"),
+              @Result(column = "apply_deadline", property = "applyDeadline"),
+              @Result(column = "submit_deadline", property = "submitDeadline"),
+              @Result(column = "contest_contact", property = "contestContact"),
+              @Result(column = "email_address", property = "emailAddress"),
+              @Result(column = "cover_img", property = "coverImg")})
     ContestDetailVO getContestDetail(@Param("contest_id")int contestId);
 
     @Select("SELECT contest_name, attachment FROM contest WHERE contest_id = #{contest_id}")
+    @Results({@Result(column = "contest_name", property = "contestName"),
+            @Result(column = "attachment", property = "attachment")})
     ContestAttachmentVO getContestAttachment(@Param("contest_id")int contestId);
 
     @Insert("INSERT INTO team_in_contest(contest_id, team_id, captain_id, captain_name, captain_department) " +
