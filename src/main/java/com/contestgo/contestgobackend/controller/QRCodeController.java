@@ -1,7 +1,7 @@
 package com.contestgo.contestgobackend.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.contestgo.contestgobackend.domain.WXSession;
+import com.contestgo.contestgobackend.bean.WXSession;
 import com.contestgo.contestgobackend.utils.JsonResult;
 import com.contestgo.contestgobackend.utils.QRCodeGenerator;
 import com.contestgo.contestgobackend.utils.RedisUtils;

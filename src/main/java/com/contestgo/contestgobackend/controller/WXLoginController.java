@@ -2,7 +2,7 @@ package com.contestgo.contestgobackend.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.contestgo.contestgobackend.constant.RedisConstant;
-import com.contestgo.contestgobackend.domain.WXSession;
+import com.contestgo.contestgobackend.bean.WXSession;
 import com.contestgo.contestgobackend.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

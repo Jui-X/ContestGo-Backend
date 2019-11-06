@@ -1,6 +1,6 @@
 package com.contestgo.contestgobackend.service.impl;
 
-import com.contestgo.contestgobackend.domain.Student;
+import com.contestgo.contestgobackend.bean.Student;
 import com.contestgo.contestgobackend.dao.StudentDAO;
 import com.contestgo.contestgobackend.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;

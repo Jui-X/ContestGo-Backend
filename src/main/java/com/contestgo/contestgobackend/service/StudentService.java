@@ -1,6 +1,6 @@
 package com.contestgo.contestgobackend.service;
 
-import com.contestgo.contestgobackend.domain.Student;
+import com.contestgo.contestgobackend.bean.Student;
 
 public interface StudentService {
 

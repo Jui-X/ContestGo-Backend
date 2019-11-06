@@ -1,6 +1,6 @@
 package com.contestgo.contestgobackend.utils;
 
-import com.contestgo.contestgobackend.domain.WXSession;
+import com.contestgo.contestgobackend.bean.WXSession;
 
 import java.util.HashMap;
 import java.util.Map;

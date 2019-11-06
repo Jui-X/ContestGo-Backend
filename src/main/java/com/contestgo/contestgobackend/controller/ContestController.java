@@ -7,6 +7,7 @@ import com.contestgo.contestgobackend.utils.SendMailUtil;
 import com.contestgo.contestgobackend.vo.ContestAttachmentVO;
 import com.contestgo.contestgobackend.vo.ContestDetailVO;
 import com.contestgo.contestgobackend.vo.ContestVO;
+import com.contestgo.contestgobackend.vo.MyContestVO;
 import io.swagger.annotations.Api;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,21 @@ public class ContestController {
         } else {
             return JsonResult.errorMsg("Contest Not Found!");
         }
+    }
+
+    @GetMapping("/getMyContest")
+    public JsonResult getMyContest(@RequestParam("stuId")String stuId) {
+        if (stuId == null || "".equals(stuId)) {
+            return JsonResult.errorMsg("stuId is null..");
+        }
+
+        List<MyContestVO> myContest = contestService.getMyContest(stuId);
+
+        if (myContest == null) {
+            return JsonResult.errorMsg("My contest is null");
+        }
+
+        return JsonResult.ok(myContest);
     }
 
     @GetMapping("/getContestDetail")

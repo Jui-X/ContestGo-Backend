@@ -1,4 +1,4 @@
-package com.contestgo.contestgobackend.domain;
+package com.contestgo.contestgobackend.bean;
 
 /**
  * @param: none

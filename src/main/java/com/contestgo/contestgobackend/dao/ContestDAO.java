@@ -1,8 +1,6 @@
 package com.contestgo.contestgobackend.dao;
 
-import com.contestgo.contestgobackend.vo.ContestAttachmentVO;
-import com.contestgo.contestgobackend.vo.ContestDetailVO;
-import com.contestgo.contestgobackend.vo.ContestVO;
+import com.contestgo.contestgobackend.vo.*;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -14,10 +12,23 @@ public interface ContestDAO {
             @Result(column = "contest_name", property = "contestName")})
     List<ContestVO> listScientificContest();
 
-    @Results({@Result(column = "contest_id", property = "contestId", id =true),
-              @Result(column = "contest_name", property = "contestName")})
     @Select("SELECT contest_id, contest_name FROM contest WHERE contest_type = ${@com.contestgo.contestgobackend.enums.ContestEnum@SPORT_CONTEST.getType()}")
+    @Results({@Result(column = "contest_id", property = "contestId", id =true),
+            @Result(column = "contest_name", property = "contestName")})
     List<ContestVO> listSportContest();
+
+    @Select("SELECT contest_name, start_time, end_time FROM team_in_contest WHERE team_number=#{team_number}")
+    @Results({@Result(column = "contest_name", property = "contestName"),
+              @Result(column = "start_time", property = "startTime"),
+              @Result(column = "end_time", property = "endTime")})
+    MyContestVO getMyContest(@Param("team_number") int teamNumber);
+
+    @Select("SELECT team_in_contest_id, contest_id, contest_name FROM team_in_contest WHERE team_number = #{team_number}")
+    @Results({@Result(column = "team_in_contest_id", property = "teamInContestId", id = true),
+              @Result(column = "contest_id", property = "contestId"),
+              @Result(column = "contest_name", property = "contestName")
+    })
+    ReimbursementContestVO getMyContestIdAndName(@Param("team_number")int teamNumber);
 
     @Select("SELECT contest_id, contest_name, contest_detail, apply_deadline, submit_deadline, contest_contact, email_address, " +
             "cover_img FROM contest WHERE contest_id = #{contest_id}")

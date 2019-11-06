@@ -3,6 +3,7 @@ package com.contestgo.contestgobackend.service;
 import com.contestgo.contestgobackend.vo.ContestAttachmentVO;
 import com.contestgo.contestgobackend.vo.ContestDetailVO;
 import com.contestgo.contestgobackend.vo.ContestVO;
+import com.contestgo.contestgobackend.vo.MyContestVO;
 
 import java.util.List;
 
@@ -17,6 +18,8 @@ public interface ContestService {
     List<ContestVO> listScientificContest();
 
     List<ContestVO> listSportContest();
+
+    List<MyContestVO> getMyContest(String stuId);
 
     ContestDetailVO getContestDetail(int contestId);
 

@@ -1,6 +1,6 @@
 package com.contestgo.contestgobackend.dao;
 
-import com.contestgo.contestgobackend.domain.Student;
+import com.contestgo.contestgobackend.bean.Student;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

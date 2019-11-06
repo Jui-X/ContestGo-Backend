@@ -1,13 +1,16 @@
 package com.contestgo.contestgobackend.service.impl;
 
 import com.contestgo.contestgobackend.dao.ContestDAO;
+import com.contestgo.contestgobackend.dao.TeamDAO;
 import com.contestgo.contestgobackend.service.ContestService;
 import com.contestgo.contestgobackend.vo.ContestAttachmentVO;
 import com.contestgo.contestgobackend.vo.ContestDetailVO;
 import com.contestgo.contestgobackend.vo.ContestVO;
+import com.contestgo.contestgobackend.vo.MyContestVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,6 +25,9 @@ public class ContestServiceImpl implements ContestService {
     @Autowired
     private ContestDAO contestDAO;
 
+    @Autowired
+    private TeamDAO teamDAO;
+
     @Override
     public List<ContestVO> listScientificContest() {
         return contestDAO.listScientificContest();
@@ -30,6 +36,22 @@ public class ContestServiceImpl implements ContestService {
     @Override
     public List<ContestVO> listSportContest() {
         return contestDAO.listSportContest();
+    }
+
+    @Override
+    public List<MyContestVO> getMyContest(String stuId) {
+        List<Integer> myTeam = teamDAO.getMyTeam(stuId);
+
+        List<MyContestVO> myContestVOList = new ArrayList<>();
+        for (Integer teamNumber : myTeam) {
+            MyContestVO myContest = contestDAO.getMyContest(teamNumber);
+
+            if (myContest != null) {
+                myContestVOList.add(myContest);
+            }
+        }
+
+        return myContestVOList;
     }
 
     @Override
@@ -53,7 +75,6 @@ public class ContestServiceImpl implements ContestService {
     @Override
     public void createContest(String contestName, String contestDetail, String contestType,
                               String venue, String path, String emailAddress) {
-
         /** contestName, contest_details, contestType, applyDeadline, submitDeadline,
          preliminaryDate, quarterFinalDate, finalDate, venue, file, emailAddress */
         contestDAO.insertContest(contestName, contestDetail, contestType, venue, path, emailAddress);
