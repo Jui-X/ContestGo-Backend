@@ -35,6 +35,7 @@ public interface ContestDAO {
     @Results({@Result(column = "contest_id", property = "contestId", id =true),
               @Result(column = "contest_name", property = "contestName"),
               @Result(column = "contest_detail", property = "contestDetail"),
+              @Result(column = "time", property = "time"),
               @Result(column = "apply_deadline", property = "applyDeadline"),
               @Result(column = "submit_deadline", property = "submitDeadline"),
               @Result(column = "contest_contact", property = "contestContact"),

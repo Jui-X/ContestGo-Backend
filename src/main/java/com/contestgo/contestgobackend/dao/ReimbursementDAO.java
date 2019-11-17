@@ -22,5 +22,5 @@ public interface ReimbursementDAO {
             "#{reimbursement_type}, #{reimbursement_attachment})")
     void addReimbursementRecord(@Param("team_in_contest_id")int teamInContestId, @Param("reimbursement_item")String reimbursementItem,
                                 @Param("reimbursement_amount") BigDecimal reimbursementAmount, @Param("reimbursement_type")int reimbursementType,
-                                @Param("reimbursement_attachment")List<String> reimbursementAttachment);
+                                @Param("reimbursement_attachment")String reimbursementAttachment);
 }

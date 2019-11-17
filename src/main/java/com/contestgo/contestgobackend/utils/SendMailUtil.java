@@ -25,7 +25,7 @@ public class SendMailUtil {
 
     public void sendContestAttachmentEmail(String receiver, ContestAttachmentVO attachment) throws MessagingException {
         String contestName = attachment.getContestName();
-        String contestAttachment = attachment.getContestAttachment();
+        String contestAttachment = attachment.getAttachment();
 
         // 需要发送的邮件
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();

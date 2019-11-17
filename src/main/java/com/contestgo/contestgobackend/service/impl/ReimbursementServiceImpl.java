@@ -56,8 +56,7 @@ public class ReimbursementServiceImpl implements ReimbursementService {
     }
 
     @Override
-    public void addReimbursementRecord(int teamInContestId, String reimbursementItem, BigDecimal reimbursementAmount,
-                                       int reimbursementType, List<String> reimbursementAttachment) {
+    public void addReimbursementRecord(int teamInContestId, String reimbursementItem, BigDecimal reimbursementAmount, int reimbursementType, String reimbursementAttachment) {
         reimbursementDAO.addReimbursementRecord(teamInContestId, reimbursementItem, reimbursementAmount, reimbursementType,
                 reimbursementAttachment);
     }

@@ -13,5 +13,5 @@ public class ContestAttachmentVO {
     /** 比赛名称 */
     private String contestName;
     /** 比赛附件 */
-    private String contestAttachment;
+    private String attachment;
 }

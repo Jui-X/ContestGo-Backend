@@ -16,6 +16,9 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<dependency.version>LATEST</dependency.version>
+		<elasticsearch.version>6.8.4</elasticsearch.version>
 	</properties>
 
 	<dependencies>
@@ -32,7 +35,6 @@
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
-			<version>2.0.0</version>
 		</dependency>
 
 		<!-- 热部署 -->
@@ -129,7 +131,6 @@
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>4.3.5</version>
         </dependency>
 
 		<!--mail-->
@@ -148,6 +149,23 @@
 			<groupId>com.google.zxing</groupId>
 			<artifactId>javase</artifactId>
 			<version>3.3.3</version>
+		</dependency>
+		<!--elasticsearch 客户端-->
+		<dependency>
+			<groupId>org.elasticsearch.client</groupId>
+			<artifactId>transport</artifactId>
+		</dependency>
+		<!--ElasticSearch 5.x 根据官网配置maven 依赖, 由于 5.0x的 jar 内部使用的 apache log4日志。-->
+		<!--所以要配置额外的依赖支持 org.apache.logging.log4j。-->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.9</version>
 		</dependency>
 	</dependencies>
 

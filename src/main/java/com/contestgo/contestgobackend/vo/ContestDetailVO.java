@@ -19,6 +19,9 @@ public class ContestDetailVO {
     /** 比赛详情 */
     private String contestDetail;
 
+    /** 比赛时间节点 */
+    // private Date time;
+
     /** 报名截止日期 */
     private Timestamp applyDeadline;
 

@@ -111,6 +111,9 @@ public class ContestController {
 
     @PostMapping("/sendAttachment")
     public JsonResult sendMail(@RequestBody()JSONObject contestInfo) throws MessagingException {
+        if (contestInfo == null) {
+            return JsonResult.errorMsg("Contest Info is null..");
+        }
         String receiver = contestInfo.getString("emailAddress");
         int contestId = Integer.valueOf(contestInfo.getString("contestId"));
 
